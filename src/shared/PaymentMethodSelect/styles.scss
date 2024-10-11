@@ -1,0 +1,135 @@
+@import "scssCommon";
+
+@mixin option-label() {
+  line-height: 14px;
+  font-size: 10px;
+  height: 14px;
+  font-weight: 700;
+  position: relative;
+  @media (min-width: $tablet-min-width) {
+    line-height: 19px;
+    font-size: 14px;
+    height: 19px;
+  }
+  span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    @include text-overflow();
+  }
+}
+
+.payment-select-wrapper {
+  &.MuiInputBase-root {
+    font-family: var(--font-family);
+    color: var(--main-text);
+    transition: .3s all;
+    background: var(--second-bg);
+    border-radius: var(--field-radius);
+    &:hover {
+      fieldset {
+        border-color: var(--main-text);
+      }
+    }
+    &.Mui-focused {
+      fieldset {
+        border-color: var(--main-text);
+      }
+    }
+    .MuiSelect-select {
+      padding: var(--field-padding-side);
+      &.MuiSelect-outlined {
+        padding-right: calc((var(--field-padding-side) * 2) + 18px);
+      }
+      .payment-select-value {
+        display: flex;
+        align-items: center;
+        gap: var(--card-gap);
+        .payment-logo {
+          width: 50px;
+          height: 38px;
+          object-fit: contain;
+          display: block;
+        }
+        .option-details {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+          .label {
+            @include option-label();
+          }
+          .notice {
+            font-size: 8px;
+            line-height: 10px;
+            font-weight: 500;
+            color: var(--second-text);
+            @media (min-width: $tablet-min-width) {
+              font-size: 12px;
+              line-height: 17px;
+            }
+          }
+        }
+      }
+    }
+    fieldset {
+      transition: .3s all;
+      border: 1px solid var(--second-bg);
+    }
+    .MuiSelect-icon {
+      top: 50%;
+      width: 18px;
+      height: 18px;
+      right: var(--field-padding-side);
+      transform: translateY(-50%);
+      transition: .3s all;
+      &.MuiSelect-iconOpen {
+        transform: translateY(-50%) rotate(180deg);
+      }
+    }
+  }
+}
+
+.payment-select-menu-wrapper {
+  .paper-wrapper {
+    padding: var(--popover-padding);
+    background: var(--main-bg);
+    border-radius: var(--field-radius);
+    font-family: var(--font-family);
+    color: var(--main-text);
+    box-shadow: var(--menu-shadow);
+    .menu-list {
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--popover-list-gap);
+      .payment-select-item {
+        padding: var(--popover-item-padding);
+        display: flex;
+        align-items: center;
+        gap: var(--card-gap);
+        font-size: 14px;
+        line-height: 19px;
+        font-weight: 700;
+        transition: .3s all;
+        border-radius: 4px;
+        &:hover {
+          background: var(--main-bg-hover);
+        }
+        &.Mui-selected {
+          background: var(--main-bg-hover);
+        }
+        img {
+          width: 40px;
+          height: 30px;
+          object-fit: contain;
+          display: block;
+        }
+        .label {
+          flex: 1;
+          @include option-label();
+        }
+      }
+    }
+  }
+}

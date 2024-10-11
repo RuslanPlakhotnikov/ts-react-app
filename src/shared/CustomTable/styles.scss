@@ -1,0 +1,106 @@
+@import "scssCommon";
+
+.custom-table-wrapper {
+  .table-content {
+    overflow: hidden;
+    transition: .3s all;
+    .table-row {
+      padding: var(--table-row-padding) 0;
+      border-bottom: 1px solid var(--border-color-1);
+      overflow: auto;
+      width: 100%;
+      position: relative;
+      .full-width-column {
+        margin-bottom: var(--table-row-padding);
+        padding: 4px var(--field-padding-side);
+        background: var(--second-bg);
+        border-radius: var(--field-radius);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: sticky;
+        left: 0;
+        img {
+          max-width: 57px;
+          max-height: 30px;
+          object-fit: contain;
+          display: block;
+        }
+        .table-column {
+          text-align: right;
+        }
+      }
+      .columns-list {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--table-gap);
+        width: fit-content;
+        min-width: 100%;
+      }
+      .table-column {
+        display: flex;
+        align-items: center;
+        gap: var(--table-gap);
+        @media (max-width: $tablet-min-width) {
+          width: fit-content !important;
+        }
+        .img-box {
+          width: 48px;
+          height: 48px;
+          padding: 2px;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          background: var(--second-bg);
+          border-radius: var(--table-img-radius);
+          display: none;
+          @media (min-width: $tablet-min-width) {
+            display: flex;
+          }
+          img {
+            display: block;
+            max-width: 100%;
+            max-height: 100%;
+          }
+        }
+        .text-box {
+          flex: 1;
+          min-width: fit-content;
+          .value {
+            font-size: 12px;
+            line-height: 16px;
+            font-weight: 700;
+            margin-bottom: 2px;
+            white-space: nowrap;
+            @media (min-width: $tablet-min-width) {
+              font-size: 16px;
+              line-height: 22px;
+              margin-bottom: 4px;
+            }
+          }
+          .label {
+            font-size: 10px;
+            line-height: 14px;
+            color: var(--second-text);
+            white-space: nowrap;
+            @media (min-width: $tablet-min-width) {
+              font-size: 14px;
+              line-height: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .show-more-btn {
+    @include primary-btn();
+    width: 100%;
+    display: flex;
+    margin: var(--wrapper-gap) 0 0;
+    @media (min-width: $tablet-min-width) {
+      max-width: 280px;
+      margin: var(--wrapper-gap) auto 0;
+    }
+  }
+}

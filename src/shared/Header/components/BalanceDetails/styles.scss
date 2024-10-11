@@ -1,0 +1,41 @@
+@import "scssCommon";
+
+.balance-details {
+  --wrapper-height: 36px;
+  display: flex;
+  align-items: center;
+  height: var(--height);
+  border-radius: var(--btn-radius);
+  overflow: hidden;
+  background: var(--secondary-light-color);
+  .details-content {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 8px 0 12px;
+    color: var(--secondary-inner-color);
+    font-weight: 700;
+    svg {
+      display: block;
+    }
+    .balance {
+      font-size: 14px;
+      line-height: 19px;
+      padding-top: 2px;
+    }
+    .percentage {
+      padding: 4px 2px 2px;
+      font-size: 8px;
+      line-height: 11px;
+      border-radius: 3px;
+      background: var(--secondary-color);
+    }
+  }
+  .add-btn {
+    @include icon-btn(var(--secondary-color-hover));
+    background: var(--secondary-color);
+    width: var(--wrapper-height);
+    height: var(--wrapper-height);
+    border-radius: 0;
+  }
+}

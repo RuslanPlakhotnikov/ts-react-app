@@ -1,0 +1,9 @@
+@import "scssCommon";
+
+.app-wrapper {
+  .app-content {
+    max-width: $content-width;
+    margin: 0 auto;
+    padding: var(--page-padding);
+  }
+}

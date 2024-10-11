@@ -1,0 +1,174 @@
+@import "scssCommon";
+
+.payment-modal {
+  font-family: inherit;
+  .MuiBackdrop-root {
+    background: transparent;
+    &:focus-visible {
+      outline: none;
+    }
+    &:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      height: calc(100% - var(--header-height));
+      background: var(--backdrop-bg);
+      @media (min-width: $tablet-min-width) {
+        backdrop-filter: blur(7px);
+      }
+    }
+  }
+  .payment-modal-content {
+    font-family: inherit;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: var(--main-bg);
+    padding: var(--modal-padding);
+    display: flex;
+    flex-direction: column;
+    gap: var(--content-gap);
+    width: 100%;
+    height: calc(100% - var(--header-height));
+    overflow: auto;
+    @include scroll-styles();
+    &:focus-visible {
+      outline: none;
+    }
+    @media (min-width: $tablet-min-width) {
+      width: 710px;
+      height: fit-content;
+      max-height: calc(100% - 64px);
+      border-radius: var(--menu-radius);
+      bottom: 50%;
+      left: 50%;
+      transform: translate(-50%, 50%);
+    }
+    .modal-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      button {
+        @include icon-btn();
+        &.back-btn {
+          width: fit-content;
+          padding-right: 8px;
+          gap: 4px;
+          font-size: 16px;
+          font-family: inherit;
+          color: var(--main-text);
+          @include btn-base();
+          svg {
+            transform: rotate(90deg);
+          }
+        }
+      }
+    }
+    .balance {
+      height: 48px;
+      width: 100%;
+      border-radius: var(--btn-radius);
+      background: var(--secondary-color);
+      color: var(--secondary-inner-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--btn-gap);
+      font-size: 14px;
+      font-weight: 500;
+      @media (min-width: $tablet-min-width) {
+        width: calc(100% + (var(--modal-padding) * 2));
+        margin-left: calc(var(--modal-padding) * -1);
+        border-radius: 0;
+        font-size: 16px;
+      }
+      span {
+        font-size: 18px;
+        font-weight: 700;
+        @media (min-width: $tablet-min-width) {
+          font-size: 24px;
+        }
+      }
+    }
+    .section-label {
+      font-size: 16px;
+      line-height: 22px;
+      font-weight: 700;
+      text-align: center;
+      @media (min-width: $tablet-min-width) {
+        font-size: 18px;
+        line-height: 25px;
+      }
+    }
+    .amount-container {
+      display: flex;
+      flex-direction: column;
+      gap: var(--card-gap);
+      .styled-text-field {
+        width: 100%;
+        input {
+          text-align: center;
+        }
+      }
+      .amount-options {
+        display: flex;
+        gap: var(--card-gap);
+        .amount-item {
+          @include btn-base();
+          flex: 1;
+          height: var(--btn-height);
+          font-size: 12px;
+          font-weight: 700;
+          padding: 0;
+          color: var(--main-text);
+          border-radius: var(--btn-radius);
+          background: var(--second-bg);
+          box-shadow: var(--item-shadow);
+          transition: .3s all;
+          &:hover {
+            background: var(--second-bg-hover);
+          }
+          @media (min-width: $tablet-min-width) {
+            font-size: 16px;
+          }
+        }
+      }
+      .notice {
+        width: 100%;
+        font-size: 12px;
+        line-height: 16px;
+        font-weight: 500;
+        color: var(--second-text);
+        text-align: center;
+        @media (min-width: $tablet-min-width) {
+          font-size: 14px;
+          line-height: 19px;
+        }
+      }
+    }
+    .promo-box {
+      display: flex;
+      align-items: flex-end;
+      gap: var(--content-gap);
+      .styled-text-field {
+        flex: 1;
+      }
+      .apply-btn {
+        @include primary-btn();
+        height: var(--field-height);
+        @media (min-width: $tablet-min-width) {
+          min-width: 152px;
+        }
+      }
+    }
+    .confirm-btn {
+      @include primary-btn();
+      width: 100%;
+      @media (min-width: $tablet-min-width) {
+        height: 48px;
+      }
+    }
+  }
+}

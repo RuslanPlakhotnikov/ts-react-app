@@ -1,0 +1,80 @@
+@import "scssCommon";
+
+.navigation-menu-popover {
+  font-family: inherit;
+  color: inherit;
+  .MuiPaper-root {
+    color: inherit;
+    width: 300px;
+    background: var(--main-bg);
+    padding: var(--popover-padding);
+    border-radius: var(--menu-radius);
+    display: flex;
+    flex-direction: column;
+    gap: var(--popover-list-gap);
+    box-shadow: var(--menu-shadow);
+    a {
+      display: block;
+      text-decoration: none;
+      color: var(--main-text);
+      font-size: 16px;
+      line-height: var(--btn-height);
+      font-weight: 700;
+      border-radius: var(--menu-item-radius);
+      padding: 0 var(--popover-item-padding);
+      transition: .3s all;
+      &:hover {
+        background: var(--main-bg-hover);
+      }
+    }
+  }
+}
+
+.navigation-menu-drawer {
+  font-family: inherit;
+  color: inherit;
+  .MuiBackdrop-root {
+    background: var(--backdrop-bg);
+    @media (min-width: $tablet-min-width) {
+      backdrop-filter: blur(7px);
+    }
+  }
+  .MuiPaper-root {
+    width: 100%;
+    background: var(--main-bg);
+    color: inherit;
+    @media (min-width: $tablet-min-width) {
+      width: 320px;
+    }
+    .menu-head {
+      padding: 0 var(--page-padding-horizontal);
+      height: var(--header-height);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .logo {
+        display: block;
+        width: 26px;
+        height: 32px;
+      }
+      .close-btn {
+        @include icon-btn(var(--main-bg-hover));
+      }
+    }
+    .menu-content {
+      height: calc(100% - var(--header-height));
+      overflow: auto;
+      padding: var(--page-padding);
+      display: flex;
+      flex-direction: column;
+      gap: var(--content-gap);
+      a {
+        text-decoration: none;
+        color: var(--main-text);
+        font-size: 16px;
+        line-height: 22px;
+        font-weight: 700;
+      }
+    }
+  }
+}

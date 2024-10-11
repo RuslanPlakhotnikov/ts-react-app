@@ -1,0 +1,62 @@
+@font-face {
+  font-family: "Avion";
+  src: url("./assets/fonts/avenir/Avenir-Light.ttf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Avion";
+  src: url("./assets/fonts/avenir/Avenir-Regular.ttf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Avion";
+  src: url("./assets/fonts/avenir/Avenir-Heavy.ttf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Avion";
+  src: url("./assets/fonts/avenir/Avenir-Black.ttf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  font-weight: 400;
+  color: var(--main-text);
+  background: var(--main-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+@media print {
+  html, body, #root {
+    height: unset;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.MuiTouchRipple-root {
+  display: none !important;
+}
+
+input {
+  touch-action: manipulation !important;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

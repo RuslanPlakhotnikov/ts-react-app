@@ -1,0 +1,11 @@
+@import "scssCommon";
+
+.App {
+  height: 100%;
+  overflow: auto;
+  @include scroll-styles();
+  @media print {
+    height: unset;
+    overflow: unset;
+  }
+}

@@ -1,0 +1,99 @@
+@import "scssCommon";
+
+.styled-text-field {
+  &.error {
+    .field-label {
+      color: var(--error-color);
+    }
+  }
+  .field-label {
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 700;
+    color: var(--main-text);
+    margin-bottom: 8px;
+    @media (min-width: $tablet-min-width) {
+      margin-bottom: 12px;
+    }
+  }
+  .MuiFormControl-root {
+    width: 100%;
+    .MuiInputBase-root {
+      width: 100%;
+      background: var(--second-bg);
+      padding: 0;
+      &:hover {
+        fieldset {
+          border-color: var(--main-text);
+        }
+      }
+      &.Mui-focused {
+        fieldset {
+          border-color: var(--main-text);
+        }
+      }
+      &.Mui-error {
+        fieldset {
+          border-color: var(--error-color);
+        }
+      }
+      &.MuiOutlinedInput-root {
+        padding-right: var(--field-padding-side);
+      }
+      .MuiInputAdornment-root {
+        margin: 0;
+        &.MuiInputAdornment-positionStart {
+          padding-left: var(--field-padding-side);
+        }
+        .MuiTypography-root {
+          font-size: 12px;
+          color: var(--second-text);
+        }
+        svg {
+          display: block;
+          width: 16px;
+          height: 16px;
+          @media (min-width: $tablet-min-width) {
+            width: 24px;
+            height: 24px;
+          }
+        }
+      }
+      input {
+        font-family: var(--font-family);
+        font-weight: 500;
+        letter-spacing: 0;
+        padding: 0 var(--field-padding-side);
+        height: var(--field-height);
+        color: var(--main-text);
+        font-size: 14px;
+        &::placeholder {
+          color: var(--main-text);
+          opacity: .5;
+          font-weight: 500;
+        }
+        &:-webkit-autofill,
+        &:-webkit-autofill:hover,
+        &:-webkit-autofill:focus,
+        &:-webkit-autofill:active {
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: var(--main-text);
+        }
+        @media (min-width: $tablet-min-width) {
+          font-size: 16px;
+        }
+      }
+      fieldset {
+        border: 1px solid var(--border-color);
+        border-radius: var(--field-radius);
+        transition: .3s all;
+      }
+    }
+    .MuiFormHelperText-root {
+      font-size: 12px;
+      line-height: 12px;
+      margin: 4px 0 0 0;
+      color: var(--error-color);
+    }
+  }
+}

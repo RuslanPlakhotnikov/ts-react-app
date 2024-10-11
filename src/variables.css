@@ -1,0 +1,97 @@
+
+body {
+  --font-family: "Avion", sans-serif;
+  /*COLOR VARIABLES*/
+  --main-bg: #202329;
+  --main-bg-hover: #1c1e24;
+  --second-bg: #30363E;
+  --second-bg-hover: #252a2d;
+  --backdrop-bg: rgba(0, 0, 0, .8);
+
+  --main-text: #FFFFFF;
+  --second-text: rgba(255, 255, 255, .5);
+
+  --primary-color: #F9484B;
+  --privary-color-hover: #da2529;
+  --primary-inner-color: #FFFFFF;
+
+  --secondary-color: #2D69EB;
+  --secondary-color-hover: #1957dc;
+  --secondary-light-color: #4C84FF;
+  --secondary-inner-color: #FFFFFF;
+
+  --success-color: #00C868;
+  --error-color: #a11b1d;
+
+  --status-proccess-color: #C69516;
+  --status-active-color: #00BA61;
+  --status-performed-color: #2658D7;
+
+  --border-color-1: #1C1A1A;
+  --border-color-2: #C68CFF;
+
+  /*SHADOW*/
+  --header-shadow: 0 2px 7px 0 #000000B8;
+  --avatar-shadow: 0 1px 17px 0 #4800E03B;
+  --menu-shadow: 0 2px 15px 0 #000000B8;
+  --item-shadow: 4px 4px 5px 0 #0000000D;
+
+  /*OTHER*/
+  --page-padding-horizontal: 20px;
+  --page-padding-vertical: 24px;
+  --page-padding: var(--page-padding-vertical) var(--page-padding-horizontal);
+
+  --popover-padding: 8px;
+  --popover-item-padding: 8px;
+  --modal-padding: var(--page-padding-horizontal);
+  --card-padding: 8px;
+
+  --header-height: 64px;
+  --header-gap: 16px;
+
+  --wrapper-gap: 24px;
+  --content-gap: 18px;
+  --card-gap: 12px;
+  --popover-list-gap: 4px;
+
+  --btn-height: 40px;
+  --btn-radius: 6px;
+  --btn-gap: 4px;
+
+  --card-radius: 6px;
+  --menu-radius: 9px;
+  --menu-item-radius: 6px;
+
+  --field-padding-side: 12px;
+  --field-radius: 6px;
+  --field-height: 35px;
+
+  --table-gap: 12px;
+  --table-row-padding: 16px;
+  --table-img-radius: 4px;
+}
+
+@media (min-width: 767px) {
+  body {
+    --field-padding-side: 16px;
+    --card-gap: 16px;
+    --field-height: 42px;
+    --card-padding: 12px;
+    --page-padding-horizontal: 24px;
+    --page-padding-vertical: 32px;
+    --table-gap: 16px;
+    --table-row-padding: 18px;
+    --table-img-radius: 9px;
+  }
+}
+
+@media (min-width: 1060px) {
+  body {
+    --header-height: 84px;
+    --header-gap: 20px;
+    --wrapper-gap: 32px;
+    --content-gap: 24px;
+    --btn-height: 42px;
+    --page-padding-horizontal: 32px;
+  }
+}
