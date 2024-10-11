@@ -20,12 +20,12 @@ const sortTable = (sortData: ISortData, tableData: ITransaction[]) => {
   return tableData.sort((a, b) => {
     let compareResult = 0;
 
-    if (["status", "method"].includes(sortData.key)) {
-      compareResult = (a[sortData.key as keyof ITransaction] as string).localeCompare(b[sortData.key as keyof ITransaction] as string);
-    } else if (sortData.key === "date") {
+    if (sortData.key === "date") {
       compareResult = new Date(a.date).getTime() - new Date(b.date).getTime();
-    } else if (sortData.key === "amount") {
-      compareResult = a.amount - b.amount;
+    } else if (typeof a[sortData.key as keyof ITransaction] === "number") {
+      compareResult = +a[sortData.key as keyof ITransaction] - +b[sortData.key as keyof ITransaction];
+    } else {
+      compareResult = (a[sortData.key as keyof ITransaction] as string).localeCompare(b[sortData.key as keyof ITransaction] as string);
     }
 
     return sortData.dir === SortDirection.DESC ? -compareResult : compareResult;

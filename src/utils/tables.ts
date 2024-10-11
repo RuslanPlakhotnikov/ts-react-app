@@ -1,6 +1,7 @@
 import moment from "moment";
 import { ITransaction } from "./mockData";
 import { paymentSystems } from "./options";
+import { TransactionStatus } from "./mockData";
 
 export interface ITableColumn {
   label: string;
@@ -9,13 +10,21 @@ export interface ITableColumn {
   getIcon?: (row: any) => string | undefined,
   style?: Record<string, string>,
   desktopOnly?: boolean,
-  isMobileHeadColumn?: boolean
+  isMobileHeadColumn?: boolean,
+  getLabelColor?: (row: any) => string | undefined
+}
+
+const statusColors = {
+  [TransactionStatus.Active]: "var(--status-active-color)",
+  [TransactionStatus.Performed]: "var(--status-performed-color)",
+  [TransactionStatus.Processing]: "var(--status-proccess-color)"
 }
 
 export const transactionsTableColumns: ITableColumn[] = [
   {
     label: "Operation Status",
     getValue: (row: ITransaction) => row.status,
+    getLabelColor: (row: ITransaction) => statusColors[row.status],
     getIcon: (row: ITransaction) => paymentSystems.find(val => val.value === row.method)?.icon,
     isMobileHeadColumn: true
   },
@@ -33,7 +42,7 @@ export const transactionsTableColumns: ITableColumn[] = [
   },
   {
     label: "Payment Date",
-    getValue: (row: ITransaction) => moment(row.date).format("DD.MM at hh:MM A"),
+    getValue: (row: ITransaction) => `${moment(row.date).format("DD.MM")} at ${moment(row.date).format("hh:MM A")}`,
     sortKey: "date",
     style: { width: "165px" }
   },
@@ -46,6 +55,7 @@ export const transactionsTableColumns: ITableColumn[] = [
   {
     label: "Operation Status",
     getValue: (row: ITransaction) => row.status,
+    getLabelColor: (row: ITransaction) => statusColors[row.status],
     sortKey: "status",
     style: { width: "108px" },
     desktopOnly: true

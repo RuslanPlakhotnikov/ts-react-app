@@ -8,12 +8,13 @@ import "./styles.scss";
 
 interface IColumn {
   icon?: string;
+  labelColor?: string;
   label: any;
   value: string;
   style?: Record<string, string>;
 }
 
-const Column: React.FC<IColumn> = ({ icon, label, value, style }) => {
+const Column: React.FC<IColumn> = ({ icon, label, value, style, labelColor }) => {
   return (
     <div className="table-column" style={style || {}}>
       {icon && (
@@ -22,7 +23,7 @@ const Column: React.FC<IColumn> = ({ icon, label, value, style }) => {
         </div>
       )}
       <div className="text-box">
-        <div className="value">{value}</div>
+        <div className="value" style={{ color: labelColor }}>{value}</div>
         <div className="label">{label}</div>
       </div>
     </div>
@@ -56,6 +57,7 @@ const CustomTable: React.FC<ICustomTable> = ({ tableData, columns }) => {
                   <Column
                     value={column.getValue(row)}
                     label={column.label}
+                    labelColor={column.getLabelColor && column.getLabelColor(row)}
                   />
                 </div>
               ))}
@@ -69,6 +71,7 @@ const CustomTable: React.FC<ICustomTable> = ({ tableData, columns }) => {
                     icon={column.getIcon && column.getIcon(row)}
                     label={column.label}
                     style={column.style}
+                    labelColor={column.getLabelColor && column.getLabelColor(row)}
                   />
                 ))}
             </div>
